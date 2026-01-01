@@ -94,6 +94,7 @@ namespace esphome
             LVAR_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM = 0x8414,
             VAR_OUT_SENSOR_CT1 = 0x8217,
             LVAR_NM_OUT_SENSOR_VOLTAGE = 0x24fc,
+            VAR_in_temp_water_heater_f = 0x4238,
         };
 
         struct Address
@@ -189,3 +190,4 @@ namespace esphome
 
     } // namespace samsung_ac
 } // namespace esphome
+
