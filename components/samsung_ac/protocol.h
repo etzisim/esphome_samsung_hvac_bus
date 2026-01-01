@@ -99,6 +99,7 @@ namespace esphome
             virtual void set_outdoor_cumulative_energy(const std::string &address, float value) = 0;
             virtual void set_outdoor_current(const std::string &address, float value) = 0;
             virtual void set_outdoor_voltage(const std::string &address, float value) = 0;
+            virtual void set_indoor_temp_water_heater(const std::string address, float value) = 0;
         };
 
         struct ProtocolRequest
@@ -150,3 +151,4 @@ namespace esphome
 
     } // namespace samsung_ac
 } // namespace esphome
+
