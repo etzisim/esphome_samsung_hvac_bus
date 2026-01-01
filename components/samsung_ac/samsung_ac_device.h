@@ -297,7 +297,7 @@ namespace esphome
 
       void udpate_indoor_temp_water_heater(float value)
       {
-        indoor_temp_water_heater = value;
+        udpate_indoor_temp_water_heater = value;
       }
 
       void set_target_water_temperature_number(Samsung_AC_Number *number)
@@ -516,6 +516,7 @@ namespace esphome
     };
   } // namespace samsung_ac
 } // namespace esphome
+
 
 
 
