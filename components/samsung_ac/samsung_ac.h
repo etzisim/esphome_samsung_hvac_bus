@@ -246,7 +246,11 @@ namespace esphome
       {
         update_device_sensor(address, &Samsung_AC_Device::outdoor_voltage, value);
       }
-
+      void set_indoor_temp_water_heater(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_indoor_temp_water_heater(value); });
+      }
     protected:
       Samsung_AC_Device *find_device(const std::string &address)
       {
@@ -284,3 +288,4 @@ namespace esphome
 
   } // namespace samsung_ac
 } // namespace esphome
+
