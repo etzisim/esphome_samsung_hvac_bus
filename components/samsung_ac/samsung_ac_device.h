@@ -115,6 +115,7 @@ namespace esphome
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
       sensor::Sensor *outdoor_voltage{nullptr};
+      sensor::Sensor *indoor_temp_water_heater{nullptr};
       Samsung_AC_Number *target_temperature{nullptr};
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
@@ -126,6 +127,7 @@ namespace esphome
       Samsung_AC_Climate *climate{nullptr};
       std::map<uint16_t, sensor::Sensor *> custom_sensor_map;
       float room_temperature_offset{0};
+
 
       template <typename SwingType>
       void update_swing(SwingType &swing_variable, uint8_t mask, bool value)
@@ -176,6 +178,11 @@ namespace esphome
       void set_outdoor_temperature_sensor(sensor::Sensor *sensor)
       {
         outdoor_temperature = sensor;
+      }
+
+      void set_indoor_temp_water_heater(sensor::Sensor *sensor)
+      {
+        indoor_temp_water_heater = sensor;
       }
 
       void set_indoor_eva_in_temperature_sensor(sensor::Sensor *sensor)
@@ -327,12 +334,6 @@ namespace esphome
       {
         if (water_outlet_target != nullptr)
           water_outlet_target->publish_state(value);
-      }
-
-      void update_indoor_temp_water_heater((float value)
-      {
-        if (water_indoor_temp_water_heater( != nullptr)
-          water_indoor_temp_water_heater(->publish_state(value);
       }
 
       void update_target_water_temperature(float value)
@@ -517,6 +518,7 @@ namespace esphome
     };
   } // namespace samsung_ac
 } // namespace esphome
+
 
 
 
