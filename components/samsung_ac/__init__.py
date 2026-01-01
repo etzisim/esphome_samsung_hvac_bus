@@ -454,7 +454,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_INDOOR_TEMP_WATER_HEATER: (
                 sensor.new_sensor,
-                var_dev.set_indoor_water_heater_sensor,
+                var_dev.udpate_indoor_water_heater_sensor,
             ),
             CONF_DEVICE_ERROR_CODE: (sensor.new_sensor, var_dev.set_error_code_sensor),
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM: (
@@ -600,5 +600,6 @@ async def to_code(config):
 
     await cg.register_component(var, config)
     await uart.register_uart_device(var, config)
+
 
 
