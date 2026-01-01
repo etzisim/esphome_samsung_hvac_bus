@@ -840,6 +840,13 @@ namespace esphome
                 target->set_outdoor_voltage(source, value);
                 break;
             }
+            case MessageNumber::VAR_in_temp_water_heater_f: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_temp_water_heater_f, temp, source, dest);
+                target->set_indoor_temp_water_heater(source, temp);
+                break;
+            }
             default:
             {
                 double value = 0;
@@ -1309,3 +1316,4 @@ namespace esphome
 
     } // namespace samsung_ac
 } // namespace esphome
+
