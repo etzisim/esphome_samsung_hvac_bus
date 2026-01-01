@@ -295,11 +295,6 @@ namespace esphome
         };
       };
 
-      void udpate_indoor_temp_water_heater(float value)
-      {
-        udpate_indoor_temp_water_heater = value;
-      }
-
       void set_target_water_temperature_number(Samsung_AC_Number *number)
       {
         target_water_temperature = number;
@@ -332,6 +327,12 @@ namespace esphome
       {
         if (water_outlet_target != nullptr)
           water_outlet_target->publish_state(value);
+      }
+
+      void update_indoor_temp_water_heater((float value)
+      {
+        if (water_indoor_temp_water_heater( != nullptr)
+          water_indoor_temp_water_heater(->publish_state(value);
       }
 
       void update_target_water_temperature(float value)
@@ -516,6 +517,7 @@ namespace esphome
     };
   } // namespace samsung_ac
 } // namespace esphome
+
 
 
 
