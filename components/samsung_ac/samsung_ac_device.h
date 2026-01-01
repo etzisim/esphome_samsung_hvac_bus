@@ -295,7 +295,7 @@ namespace esphome
         };
       };
 
-      void set_indoor_temp_water_heater(float value)
+      void udpate_indoor_temp_water_heater(float value)
       {
         indoor_temp_water_heater = value;
       }
@@ -516,5 +516,6 @@ namespace esphome
     };
   } // namespace samsung_ac
 } // namespace esphome
+
 
 
