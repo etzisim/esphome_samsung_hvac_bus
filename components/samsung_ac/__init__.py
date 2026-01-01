@@ -229,6 +229,12 @@ DEVICE_SCHEMA = cv.Schema(
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
+        cv.Optional(CONF_DEVICE_INDOOR_TEMP_WATER_HEATER): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
         cv.Optional(CONF_DEVICE_ERROR_CODE): error_code_sensor_schema(0x8235),
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
@@ -446,6 +452,10 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_indoor_eva_out_temperature_sensor,
             ),
+            CONF_DEVICE_INDOOR_TEMP_WATER_HEATER: (
+                sensor.new_sensor,
+                var_dev.set_indoor_water_heater_sensor,
+            ),
             CONF_DEVICE_ERROR_CODE: (sensor.new_sensor, var_dev.set_error_code_sensor),
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM: (
                 sensor.new_sensor,
@@ -590,4 +600,5 @@ async def to_code(config):
 
     await cg.register_component(var, config)
     await uart.register_uart_device(var, config)
+
 
